@@ -7,7 +7,11 @@ const Header: React.FC = () => {
   return (
     <div className={classes.header}>
       <div className={classes.header__iContainer}>
-        <img src={process.env.PUBLIC_URL + "logo.svg"} alt="Emageically" />
+        <img
+          className={classes.header__iContainer_image}
+          src={process.env.PUBLIC_URL + "logo.svg"}
+          alt="Emageically"
+        />
       </div>
     </div>
   );
