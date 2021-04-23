@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 // Style
 import classes from "./Homepage.module.scss";
@@ -7,9 +7,17 @@ import classes from "./Homepage.module.scss";
 import Header from "../Components/Header/Header";
 
 const Homepage: React.FC = () => {
+  const [search, setSearch] = useState("");
+
+  // Handle SearchChange
+  const handleSearchChange = (e: any) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+  };
+
   return (
     <Fragment>
-      <Header />
+      <Header search={search} handleSearchChange={handleSearchChange} />
     </Fragment>
   );
 };

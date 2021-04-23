@@ -7,11 +7,20 @@ import classes from "./Header.module.scss";
 import Logo from "../LogoContainer/Logo";
 import Search from "../Search/Search";
 
-const Header: React.FC = () => {
+interface Props {
+  handleSearchChange: Function;
+  search: string;
+}
+
+const Header: React.FC<Props> = ({ handleSearchChange, search }) => {
   return (
     <div className={classes.header}>
       <Logo />
-      <Search extraClasses="mar-l-5rem" />
+      <Search
+        search={search}
+        handleSearchChange={handleSearchChange}
+        extraClasses="mar-l-5rem"
+      />
     </div>
   );
 };

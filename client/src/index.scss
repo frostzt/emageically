@@ -6,6 +6,24 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #ffffff;
+
+  --primary-color: #fca311;
+
+  --font-color: #212529;
+  --font-color-secondary: #353535;
+}
+
+body.dark {
+  padding: 4rem;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #14213d;
+
+  --primary-color: #fca311;
 }
 
 code {
