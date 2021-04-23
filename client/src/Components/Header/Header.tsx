@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   return (
     <div className={classes.header}>
       <Logo />
-      <Search />
+      <Search extraClasses="mar-l-5rem" />
     </div>
   );
 };
