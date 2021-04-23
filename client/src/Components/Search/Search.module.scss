@@ -1,2 +1,25 @@
 .search {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_icon {
+      font-size: 3rem;
+      transform: translateX(5rem);
+    }
+
+    &_input {
+      width: 35rem;
+      outline: none;
+      padding-left: 6rem !important;
+      border-radius: 1rem;
+      padding: 1.8rem 2rem;
+      border: 1px solid grey;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }
