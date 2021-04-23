@@ -1,6 +1,7 @@
 import * as React from "react";
 
-// Style
+// Styling
+import cx from "classnames";
 import classes from "./Header.module.scss";
 
 const Header: React.FC = () => {
@@ -13,7 +14,7 @@ const Header: React.FC = () => {
           alt="Emageically"
         />
       </div>
-      <div className={classes.header__text}>
+      <div className={cx(classes.header__text, "mar-l-2rem")}>
         <h1 className={classes.header__text_heading}>Emageically</h1>
         <p className={classes.header__text_desc}>Upload and find images!</p>
       </div>
