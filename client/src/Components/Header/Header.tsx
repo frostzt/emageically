@@ -13,6 +13,10 @@ const Header: React.FC = () => {
           alt="Emageically"
         />
       </div>
+      <div className={classes.header__text}>
+        <h1 className={classes.header__text_heading}>Emageically</h1>
+        <p className={classes.header__text_desc}>Upload and find images!</p>
+      </div>
     </div>
   );
 };
