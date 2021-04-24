@@ -5,6 +5,7 @@ import classes from "./Homepage.module.scss";
 
 // Components
 import Header from "../Components/Header/Header";
+import ImageCard from "../Components/ImageCard/ImageCard";
 
 const Homepage: React.FC = () => {
   const [search, setSearch] = useState("");
@@ -18,6 +19,7 @@ const Homepage: React.FC = () => {
   return (
     <Fragment>
       <Header search={search} handleSearchChange={handleSearchChange} />
+      <div className={classes.homepage}></div>
     </Fragment>
   );
 };
