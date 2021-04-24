@@ -1,4 +1,9 @@
 .homepage {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  columns: 3;
+  display: column;
+
+  & > * {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+  }
 }
