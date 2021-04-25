@@ -1,9 +1,4 @@
 .homepage {
-  columns: 3;
-  display: column;
-
-  & > * {
-    break-inside: avoid;
-    margin-bottom: 2rem;
-  }
+  width: 100%;
+  height: 100%;
 }
