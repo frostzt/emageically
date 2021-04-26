@@ -16,16 +16,23 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
   const [width, setWidth] = useState<NumUndef>(0);
 
   const imageRef = useRef<HTMLImageElement>(null);
+  const imageCardRef = useRef<HTMLDivElement>(null);
+  let imageBelow: any;
+
+  const setupLayout = (imageBelow: any) => {};
 
   const calculateHeight: Function = () => {
     setHeight(() => imageRef.current?.offsetHeight);
     setWidth(() => imageRef.current?.offsetWidth);
+
+    imageBelow =
+      imageCardRef.current?.nextElementSibling?.nextElementSibling
+        ?.nextElementSibling;
+    setupLayout(imageBelow);
   };
 
-  console.log(height, width);
-
   return (
-    <div className={classes.imageCard}>
+    <div ref={imageCardRef} className={classes.imageCard}>
       <div className={classes.imageCard__container}>
         <img
           onLoad={() => calculateHeight()}
