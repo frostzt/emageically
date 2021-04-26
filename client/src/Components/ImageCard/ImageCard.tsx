@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 // Styling
 import classes from "./ImageCard.module.scss";
@@ -9,11 +9,27 @@ interface Props {
   imageAlt?: string;
 }
 
+type NumUndef = number | undefined;
+
 const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
+  const [height, setHeight] = useState<NumUndef>(0);
+  const [width, setWidth] = useState<NumUndef>(0);
+
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const calculateHeight: Function = () => {
+    setHeight(() => imageRef.current?.offsetHeight);
+    setWidth(() => imageRef.current?.offsetWidth);
+  };
+
+  console.log(height, width);
+
   return (
     <div className={classes.imageCard}>
       <div className={classes.imageCard__container}>
         <img
+          onLoad={() => calculateHeight()}
+          ref={imageRef}
           className={classes.imageCard__container_image}
           src={imageSource}
           alt={imageAlt ? imageAlt : title}
