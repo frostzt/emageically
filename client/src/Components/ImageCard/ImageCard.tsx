@@ -17,8 +17,8 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
 
   const imageRef = useRef<HTMLImageElement>(null);
   const imageCardRef = useRef<HTMLDivElement>(null);
-  let imageBelowHeight: NumUndef;
-  let imageBelowWidth: NumUndef;
+  let imageAboveHeight: NumUndef;
+  let imageAboveWidth: NumUndef;
 
   const setupLayout = (width: NumUndef, height: NumUndef) => {
     console.log(width, height);
@@ -28,13 +28,13 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
     setHeight(() => imageRef.current?.offsetHeight);
     setWidth(() => imageRef.current?.offsetWidth);
 
-    imageBelowHeight =
+    imageAboveHeight =
       imageCardRef.current?.previousElementSibling?.previousElementSibling
         ?.previousElementSibling?.children[0].clientHeight;
-    imageBelowWidth =
+    imageAboveWidth =
       imageCardRef.current?.previousElementSibling?.previousElementSibling
         ?.previousElementSibling?.children[0].clientWidth;
-    setupLayout(imageBelowWidth, imageBelowHeight);
+    setupLayout(imageAboveWidth, imageAboveHeight);
   };
 
   return (
