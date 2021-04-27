@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 
 // Styling
 import classes from "./ImageCard.module.scss";
@@ -53,6 +53,7 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
       // ref={imageCardRef}
       className={classes.imageCard}
     >
+      <div className={classes.imageCard__title}>{title}</div>
       <div className={classes.imageCard__container}>
         <img
           // ref={imageRef}
