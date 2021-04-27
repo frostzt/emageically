@@ -26,15 +26,15 @@ const Homepage: React.FC = () => {
         <Masonry>
           <ImageCard
             title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image3.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
             imageSource={`${process.env.PUBLIC_URL + "images/Image1.jpg"}`}
           />
           <ImageCard
             title="Something about people"
             imageSource={`${process.env.PUBLIC_URL + "images/Image2.jpg"}`}
+          />
+          <ImageCard
+            title="Something about people"
+            imageSource={`${process.env.PUBLIC_URL + "images/Image3.jpg"}`}
           />
           <ImageCard
             title="Something about people"

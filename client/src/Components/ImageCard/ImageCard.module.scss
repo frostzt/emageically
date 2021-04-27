@@ -1,7 +1,12 @@
 .imageCard {
   width: 100%;
-  padding: 0 0.5rem;
+  cursor: pointer;
   margin-bottom: 2rem;
+  transition: all 0.3s;
+
+  &:hover {
+    filter: brightness(50%);
+  }
 
   &__container {
     width: 100%;

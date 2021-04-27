@@ -1,7 +1,9 @@
 .masonry {
+  columns: 3;
+  margin: 0 10rem;
+  margin-top: 8rem;
+  column-gap: 2rem;
   // gap: 2rem;
   // display: grid;
-  margin-top: 8rem;
   // grid-template-columns: repeat(3, 1fr);
-  columns: 3;
 }
