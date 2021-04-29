@@ -11,7 +11,7 @@ import Header from "../Components/Header/Header";
 import ImageCard from "../Components/ImageCard/ImageCard";
 
 const Homepage: React.FC = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
 
   // Handle SearchChange
   const handleSearchChange = (e: any) => {
