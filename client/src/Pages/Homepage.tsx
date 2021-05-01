@@ -23,40 +23,7 @@ const Homepage: React.FC = () => {
     <Fragment>
       <Header search={search} handleSearchChange={handleSearchChange} />
       <div className={classes.homepage}>
-        <Masonry>
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image1.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image2.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image3.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image4.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image5.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image6.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image7.jpg"}`}
-          />
-          <ImageCard
-            title="Something about people"
-            imageSource={`${process.env.PUBLIC_URL + "images/Image8.jpg"}`}
-          />
-        </Masonry>
+        <Masonry></Masonry>
       </div>
     </Fragment>
   );

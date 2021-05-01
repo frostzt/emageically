@@ -4,11 +4,11 @@ import React from "react";
 import classes from "./Masonry.module.scss";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Masonry: React.FC<Props> = ({ children }) => {
-  return <div className={classes.masonry}>{children}</div>;
+  return <div className={classes.masonry}>{children ? children : null}</div>;
 };
 
 export default Masonry;
