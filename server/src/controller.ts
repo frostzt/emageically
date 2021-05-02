@@ -1,7 +1,9 @@
 import sharp from "sharp";
 import nanoid from "nanoid";
-import { Request } from "express";
+import { NextFunction, Request, Response } from "express";
 import multer from "multer";
+
+interface EnhancedRequest extends Request {}
 
 // Setting multer memory storage
 const multerStorage: multer.StorageEngine = multer.memoryStorage();
@@ -27,3 +29,14 @@ const upload = multer({
 
 // Upload the image as buffer
 exports.uploadImage = upload.fields([{ name: "image", maxCount: 1 }]);
+
+// Save the image
+exports.manipulateImage = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    // if (!req.files.image!) return next();
+  } catch (error) {}
+};
