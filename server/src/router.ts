@@ -1,10 +1,12 @@
 import { Router } from "express";
 
+const controller = require("./controller");
+
 const router = Router();
 
 router.post(
-  "/upload"
-  // controller.uploadImage,
+  "/upload",
+  controller.uploadImage
   // controller.manipulateImage
 );
 
