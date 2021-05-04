@@ -1,9 +1,7 @@
 import sharp from "sharp";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import { NextFunction, Request, Response } from "express";
 import multer from "multer";
-
-// interface EnhancedRequest extends Request {}
 
 // Setting multer memory storage
 const multerStorage: multer.StorageEngine = multer.memoryStorage();
@@ -38,5 +36,20 @@ exports.manipulateImage = async (
 ) => {
   try {
     if (!req.files.image!) return next();
-  } catch (error) {}
+
+    // Create an image name
+    req.body.image = `${nanoid(12)}.jpeg`;
+
+    // Sharp
+    await sharp(req.files.image[0].buffer)
+      .toFormat("jpeg")
+      .jpeg({ quality: 90 })
+      .toFile(`./public/images/${req.body.image}`);
+
+    return res.status(200).json({
+      status: "success",
+    });
+  } catch (error) {
+    return new Error(error);
+  }
 };
