@@ -35,7 +35,7 @@ exports.manipulateImage = async (
   next: NextFunction
 ) => {
   try {
-    if (!req.files.image!) return next();
+    if (!req.files.image) return next();
 
     // Create an image name
     req.body.image = `${nanoid(12)}.jpeg`;
