@@ -29,13 +29,9 @@ const upload = multer({
 exports.uploadImage = upload.fields([{ name: "image", maxCount: 1 }]);
 
 // Save the image
-exports.manipulateImage = async (
-  req: any,
-  res: Response,
-  next: NextFunction
-) => {
+exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
   try {
-    if (!req.files.image) return next();
+    if (!req.files.image) return new Error("No image provided!");
 
     // Create an image name
     req.body.image = `${nanoid(12)}.jpeg`;
@@ -44,7 +40,7 @@ exports.manipulateImage = async (
     await sharp(req.files.image[0].buffer)
       .toFormat("jpeg")
       .jpeg({ quality: 90 })
-      .toFile(`./public/images/${req.body.image}`);
+      .toFile(`./dist/public/images/${req.body.image}`);
 
     return res.status(200).json({
       status: "success",
