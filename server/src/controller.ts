@@ -52,12 +52,33 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
 };
 
 // Get Images and send the links to the client
-exports.getImages = async (req: Request, res: Response, next: NextFunction) => {
+exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
   try {
     const files = await readdir(`${__dirname}/public/images`);
-    const formattedFiles = [];
+    const formattedFiles: string[] = [];
+
+    if (process.env.NODE_ENV === "development") {
+      files.forEach((file) =>
+        formattedFiles.push(
+          `${req.protocol + "://" + req.hostname}:5000/images/${file}` // @IMAGES-LINK hardcoded for dev server on PORT=5000
+        )
+      );
+    }
+
+    if (process.env.NODE_ENV === "production") {
+      files.forEach((file) =>
+        formattedFiles.push(
+          `${req.protocol + "://" + req.hostname}/images/${file}`
+        )
+      );
+    }
+
+    const lengthOfArray: Number = formattedFiles.length;
+
     return res.status(200).json({
-      files,
+      status: "success",
+      length: lengthOfArray,
+      formattedFiles,
     });
   } catch (error) {
     console.error(error);

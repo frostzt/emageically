@@ -1,9 +1,13 @@
 import path from "path";
-import express, { json } from "express";
+import cors from "cors";
 import morgan from "morgan";
 import router from "./router";
+import express, { json } from "express";
 
 const app = express();
+
+// CORS
+app.use(cors());
 
 // Body parser
 app.use(json({ limit: "10kb" }));
