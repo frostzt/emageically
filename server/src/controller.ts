@@ -1,7 +1,8 @@
 import sharp from "sharp";
+import multer from "multer";
+import { readdir } from "fs/promises";
 import { nanoid } from "nanoid";
 import { NextFunction, Request, Response } from "express";
-import multer from "multer";
 
 // Setting multer memory storage
 const multerStorage: multer.StorageEngine = multer.memoryStorage();
@@ -53,7 +54,13 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
 // Get Images and send the links to the client
 exports.getImages = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    const files = await readdir(`${__dirname}/public/images`);
+    const formattedFiles = [];
+    return res.status(200).json({
+      files,
+    });
   } catch (error) {
+    console.error(error);
     return new Error(error);
   }
 };
