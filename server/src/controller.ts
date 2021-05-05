@@ -49,3 +49,11 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
     return new Error(error);
   }
 };
+
+// Get Images and send the links to the client
+exports.getImages = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+  } catch (error) {
+    return new Error(error);
+  }
+};
