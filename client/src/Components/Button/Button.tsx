@@ -20,11 +20,7 @@ const Button: React.FC<Props> = ({ children, extraClasses, handleUpload }) => {
   );
 };
 
-export const HTMLButton: React.FC<Props> = ({
-  children,
-  extraClasses,
-  handleUpload,
-}) => {
+export const HTMLButton: React.FC<Props> = ({ children, extraClasses }) => {
   return (
     <button className={`${classes.btn} ${extraClasses ? extraClasses : ""}`}>
       {children}
