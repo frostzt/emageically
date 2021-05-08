@@ -18,6 +18,7 @@ const Homepage: React.FC = () => {
   const [images, setImages] = useState([]);
   const [search, setSearch] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     try {
