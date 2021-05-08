@@ -37,12 +37,22 @@ const Homepage: React.FC = () => {
   // Handle SearchChange
   const handleSearchChange = (e: any) => {
     e.preventDefault();
-    setSearch(e.target.value);
+    return setSearch(e.target.value);
+  };
+
+  // Handle Uploading
+  const handleUpload = (e: Event) => {
+    e.preventDefault();
+    return setIsUploading((prevState) => !prevState);
   };
 
   return (
     <Fragment>
-      <Header search={search} handleSearchChange={handleSearchChange} />
+      <Header
+        search={search}
+        handleSearchChange={handleSearchChange}
+        handleUpload={handleUpload}
+      />
       {isUploading ? <UploadBox /> : null}
       <div className={classes.homepage}>
         {isLoading ? (

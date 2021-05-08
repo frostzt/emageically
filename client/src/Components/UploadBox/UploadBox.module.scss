@@ -12,9 +12,13 @@
     left: 50%;
     width: 50vw;
     height: 50vh;
+    padding: 2rem;
     position: fixed;
     border-radius: 1rem;
     background-color: #fff;
     transform: translate(-50%, -50%);
+
+    .form {
+    }
   }
 }

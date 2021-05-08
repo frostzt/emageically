@@ -6,13 +6,29 @@ import classes from "./Button.module.scss";
 interface Props {
   children: React.ReactNode;
   extraClasses?: string;
+  handleUpload?: any;
 }
 
-const Button: React.FC<Props> = ({ children, extraClasses }) => {
+const Button: React.FC<Props> = ({ children, extraClasses, handleUpload }) => {
   return (
-    <div className={`${classes.btn} ${extraClasses ? extraClasses : ""}`}>
+    <div
+      onClick={handleUpload}
+      className={`${classes.btn} ${extraClasses ? extraClasses : ""}`}
+    >
       {children}
     </div>
+  );
+};
+
+export const HTMLButton: React.FC<Props> = ({
+  children,
+  extraClasses,
+  handleUpload,
+}) => {
+  return (
+    <button className={`${classes.btn} ${extraClasses ? extraClasses : ""}`}>
+      {children}
+    </button>
   );
 };
 

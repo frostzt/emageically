@@ -10,10 +10,15 @@ import Button from "../Button/Button";
 
 interface Props {
   handleSearchChange: Function;
+  handleUpload: Function;
   search: string;
 }
 
-const Header: React.FC<Props> = ({ handleSearchChange, search }) => {
+const Header: React.FC<Props> = ({
+  handleSearchChange,
+  search,
+  handleUpload,
+}) => {
   return (
     <div className={classes.header}>
       <Logo />
@@ -22,7 +27,9 @@ const Header: React.FC<Props> = ({ handleSearchChange, search }) => {
         handleSearchChange={handleSearchChange}
         extraClasses="mar-l-5rem"
       />
-      <Button extraClasses={classes.btn}>Submit</Button>
+      <Button handleUpload={handleUpload} extraClasses={classes.btn}>
+        Add Image
+      </Button>
     </div>
   );
 };
