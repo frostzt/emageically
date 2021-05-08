@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({ handleSearchChange, search }) => {
         handleSearchChange={handleSearchChange}
         extraClasses="mar-l-5rem"
       />
-      <Button>Submit</Button>
+      <Button extraClasses={classes.btn}>Submit</Button>
     </div>
   );
 };

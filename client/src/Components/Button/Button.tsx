@@ -5,10 +5,15 @@ import classes from "./Button.module.scss";
 
 interface Props {
   children: React.ReactNode;
+  extraClasses?: string;
 }
 
-const Button: React.FC<Props> = ({ children }) => {
-  return <div className={classes.btn}>{children}</div>;
+const Button: React.FC<Props> = ({ children, extraClasses }) => {
+  return (
+    <div className={`${classes.btn} ${extraClasses ? extraClasses : ""}`}>
+      {children}
+    </div>
+  );
 };
 
 export default Button;
