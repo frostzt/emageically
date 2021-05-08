@@ -4,7 +4,11 @@ import React from "react";
 import classes from "./UploadBox.module.scss";
 
 const UploadBox: React.FC = () => {
-  return <div></div>;
+  return (
+    <div className={classes.uploadBox}>
+      <div className={classes.container}></div>
+    </div>
+  );
 };
 
 export default UploadBox;

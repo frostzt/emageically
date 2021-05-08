@@ -9,6 +9,7 @@ import Masonry from "../Layouts/Masonry/Masonry";
 
 // Components
 import Header from "../Components/Header/Header";
+import UploadBox from "../Components/UploadBox/UploadBox";
 import ImageCard from "../Components/ImageCard/ImageCard";
 
 // GLOBALS
@@ -18,7 +19,7 @@ const Homepage: React.FC = () => {
   const [images, setImages] = useState([]);
   const [search, setSearch] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
+  const [isUploading, setIsUploading] = useState(true);
 
   useEffect(() => {
     try {
@@ -42,6 +43,7 @@ const Homepage: React.FC = () => {
   return (
     <Fragment>
       <Header search={search} handleSearchChange={handleSearchChange} />
+      {isUploading ? <UploadBox /> : null}
       <div className={classes.homepage}>
         {isLoading ? (
           <h2>Loading...</h2>
