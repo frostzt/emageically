@@ -1,0 +1,17 @@
+.btn {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  width: fit-content;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  transition: transform 0.3s;
+  backface-visibility: hidden;
+  background-color: #ef233c;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

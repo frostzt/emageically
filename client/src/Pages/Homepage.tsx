@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
+import React, { Fragment, useState, useEffect } from "react";
 
 // Style
 import classes from "./Homepage.module.scss";
@@ -15,7 +15,6 @@ import ImageCard from "../Components/ImageCard/ImageCard";
 const ENDPOINT = `http://localhost:5000/api/v1/images`;
 
 const Homepage: React.FC = () => {
-  const [length, setLength] = useState(0);
   const [images, setImages] = useState([]);
   const [search, setSearch] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +24,6 @@ const Homepage: React.FC = () => {
       setIsLoading(true);
       axios.get(ENDPOINT).then((response) => {
         setIsLoading(false);
-        setLength(response.data.length);
         setImages(response.data.formattedFiles);
       });
     } catch (error) {
@@ -48,12 +46,8 @@ const Homepage: React.FC = () => {
           <h2>Loading...</h2>
         ) : (
           <Masonry>
-            {images.map((link, index) => (
-              <ImageCard
-                key={index}
-                imageSource={link}
-                title="Humans are not that good!"
-              />
+            {images.map(({ title, link, id }) => (
+              <ImageCard title={title} imageSource={link} key={id} />
             ))}
           </Masonry>
         )}

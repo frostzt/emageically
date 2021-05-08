@@ -6,6 +6,7 @@ import classes from "./Header.module.scss";
 // Components
 import Logo from "../LogoContainer/Logo";
 import Search from "../Search/Search";
+import Button from "../Button/Button";
 
 interface Props {
   handleSearchChange: Function;
@@ -21,6 +22,7 @@ const Header: React.FC<Props> = ({ handleSearchChange, search }) => {
         handleSearchChange={handleSearchChange}
         extraClasses="mar-l-5rem"
       />
+      <Button>Submit</Button>
     </div>
   );
 };
