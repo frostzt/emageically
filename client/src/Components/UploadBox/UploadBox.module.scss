@@ -47,7 +47,9 @@
       justify-content: center;
 
       .btns {
+        bottom: 8%;
         display: flex;
+        position: absolute;
       }
     }
   }
