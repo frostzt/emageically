@@ -7,7 +7,16 @@ import image from "./ChatEngine.png";
 // Components
 import Button, { HTMLButton } from "../Button/Button";
 
-const UploadBox: React.FC = () => {
+interface Props {
+  handleUpload: any;
+}
+
+const UploadBox: React.FC<Props> = ({ handleUpload }) => {
+  // Handle submit
+  const handleFormSubmit: any = (e: Event) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={classes.uploadBox}>
       <div className={classes.container}>
@@ -18,11 +27,17 @@ const UploadBox: React.FC = () => {
             alt="Preview of uploaded img"
           />
         </div>
-        <form className={classes.form}>
+        <form onSubmit={handleFormSubmit} className={classes.form}>
           <input className={classes.uploadInput} required type="file" />
           <div className={classes.btns}>
-            <HTMLButton>Submit</HTMLButton>
-            <Button inverted>Discard</Button>
+            <HTMLButton style={{ marginRight: "2rem" }}>Submit</HTMLButton>
+            <Button
+              handler={handleUpload}
+              inverted
+              style={{ marginLeft: "2rem" }}
+            >
+              Discard
+            </Button>
           </div>
         </form>
       </div>

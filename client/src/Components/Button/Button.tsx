@@ -7,21 +7,24 @@ interface Props {
   children: React.ReactNode;
   extraClasses?: string;
   inverted?: Boolean;
-  handleUpload?: any;
+  handler?: any;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<Props> = ({
   children,
   extraClasses,
-  handleUpload,
   inverted,
+  style,
+  handler,
 }) => {
   return (
     <div
-      onClick={handleUpload}
+      onClick={handler}
       className={`${classes.btn} ${inverted ? classes.inverted : ""} ${
         extraClasses ? extraClasses : ""
       }`}
+      style={style}
     >
       {children}
     </div>
@@ -32,12 +35,16 @@ export const HTMLButton: React.FC<Props> = ({
   children,
   extraClasses,
   inverted,
+  style,
+  handler,
 }) => {
   return (
     <button
+      onClick={handler}
       className={`${classes.btn} ${inverted ? classes.inverted : ""} ${
         extraClasses ? extraClasses : ""
       }`}
+      style={style}
     >
       {children}
     </button>

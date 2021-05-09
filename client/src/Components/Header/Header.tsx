@@ -27,7 +27,7 @@ const Header: React.FC<Props> = ({
         handleSearchChange={handleSearchChange}
         extraClasses="mar-l-5rem"
       />
-      <Button handleUpload={handleUpload} extraClasses={classes.btn}>
+      <Button handler={handleUpload} extraClasses={classes.btn}>
         Add Image
       </Button>
     </div>

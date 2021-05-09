@@ -19,7 +19,7 @@ const Homepage: React.FC = () => {
   const [images, setImages] = useState([]);
   const [search, setSearch] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isUploading, setIsUploading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     try {
@@ -53,7 +53,7 @@ const Homepage: React.FC = () => {
         handleSearchChange={handleSearchChange}
         handleUpload={handleUpload}
       />
-      {isUploading ? <UploadBox /> : null}
+      {isUploading ? <UploadBox handleUpload={handleUpload} /> : null}
       <div className={classes.homepage}>
         {isLoading ? (
           <h2>Loading...</h2>
