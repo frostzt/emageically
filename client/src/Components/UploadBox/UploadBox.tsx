@@ -13,10 +13,10 @@ interface Props {
 
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const [file, setFile] = useState<string>();
+  const [isUploading, setIsUploading] = useState<Boolean>(false);
 
   // Handle file change
   const handleChange: any = (e: any) => {
-    console.log(e.target.files);
     e.preventDefault();
     if (e.target.files[0].type.split("/")[0].toString() === "image") {
       return setFile(URL.createObjectURL(e.target.files[0]));
