@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // Styling
 import classes from "./UploadBox.module.scss";
+import doggo from "./doggo.jpg";
 
 // Components
 import Button, { HTMLButton } from "../Button/Button";
@@ -30,16 +31,18 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
         <div className={classes.image}>
           <img
             className={classes.image_img}
-            src={file}
+            src={file ? file : doggo}
             alt="Preview of uploaded img"
           />
         </div>
+        <div className={classes.title}>Upload a doggo pic!</div>
         <form onSubmit={handleFormSubmit} className={classes.form}>
           <input
             className={classes.uploadInput}
             onChange={handleChange}
             required
             type="file"
+            style={{ marginBottom: "1rem" }}
           />
           <div className={classes.btns}>
             <HTMLButton style={{ marginRight: "2rem" }}>Submit</HTMLButton>
