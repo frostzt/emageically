@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Styling
 import classes from "./UploadBox.module.scss";
-import image from "./ChatEngine.png";
 
 // Components
 import Button, { HTMLButton } from "../Button/Button";
@@ -12,6 +11,14 @@ interface Props {
 }
 
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
+  const [file, setFile] = useState<string>();
+
+  // Handle file change
+  const handleChange: any = (e: any) => {
+    e.preventDefault();
+    return setFile(URL.createObjectURL(e.target.files[0]));
+  };
+
   // Handle submit
   const handleFormSubmit: any = (e: Event) => {
     e.preventDefault();
@@ -23,12 +30,17 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
         <div className={classes.image}>
           <img
             className={classes.image_img}
-            src={image}
+            src={file}
             alt="Preview of uploaded img"
           />
         </div>
         <form onSubmit={handleFormSubmit} className={classes.form}>
-          <input className={classes.uploadInput} required type="file" />
+          <input
+            className={classes.uploadInput}
+            onChange={handleChange}
+            required
+            type="file"
+          />
           <div className={classes.btns}>
             <HTMLButton style={{ marginRight: "2rem" }}>Submit</HTMLButton>
             <Button
