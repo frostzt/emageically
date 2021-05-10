@@ -16,8 +16,12 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
 
   // Handle file change
   const handleChange: any = (e: any) => {
+    console.log(e.target.files);
     e.preventDefault();
-    return setFile(URL.createObjectURL(e.target.files[0]));
+    if (e.target.files[0].type.split("/")[0].toString() === "image") {
+      return setFile(URL.createObjectURL(e.target.files[0]));
+    }
+    return alert("File type is not an image!");
   };
 
   // Handle submit
