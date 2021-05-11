@@ -49,6 +49,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
         };
       }
     }
+    // eslint-disable-next-line
   }, [isUploading]);
 
   // Handle file change
@@ -62,9 +63,12 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   };
 
   // Handle submit
-  const handleFormSubmit: any = (e: Event) => {
+  const handleFormSubmit: any = (e: any) => {
     e.preventDefault();
-    setIsUploading(true);
+    if (blob) {
+      return setIsUploading(true);
+    }
+    return alert("File type is not an image!");
   };
 
   return (
