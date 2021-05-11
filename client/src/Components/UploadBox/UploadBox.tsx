@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 // Styling
 import classes from "./UploadBox.module.scss";
@@ -11,9 +12,24 @@ interface Props {
   handleUpload: any;
 }
 
+const ENDPOINT = "http://localhost:5000/api/v1/upload";
+
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
-  const [file, setFile] = useState<string>();
+  const [file, setFile] = useState<string | undefined>();
   const [isUploading, setIsUploading] = useState<Boolean>(false);
+
+  useEffect(() => {
+    if (isUploading && file) {
+      const formData = new FormData();
+      formData.append("image", file);
+
+      axios.post(ENDPOINT, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    }
+  }, [isUploading]);
 
   // Handle file change
   const handleChange: any = (e: any) => {
