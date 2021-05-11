@@ -88,6 +88,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
           <input
             type="text"
             value={title}
+            required
             className={classes.titleInput}
             placeholder="Title of the image"
             onChange={(e) => setTitle(e.target.value)}
