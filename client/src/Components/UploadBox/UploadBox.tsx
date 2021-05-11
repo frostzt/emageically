@@ -16,6 +16,7 @@ const ENDPOINT = "http://localhost:5000/api/v1/upload";
 
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const [blob, setBlob] = useState<any>();
+  const [title, setTitle] = useState<string>("");
   const [file, setFile] = useState<string | undefined>();
   const [isUploading, setIsUploading] = useState<Boolean>(false);
 
@@ -83,6 +84,13 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
         </div>
         <div className={classes.title}>Upload a doggo pic!</div>
         <form onSubmit={handleFormSubmit} className={classes.form}>
+          <input
+            type="text"
+            value={title}
+            className={classes.titleInput}
+            placeholder="Title of the image"
+            onChange={(e) => setTitle(e.target.value)}
+          />
           <input
             className={classes.uploadInput}
             onChange={handleChange}

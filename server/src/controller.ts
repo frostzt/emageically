@@ -32,8 +32,6 @@ exports.uploadImage = upload.fields([{ name: "image", maxCount: 1 }]);
 // Save the image
 exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
   try {
-    console.log(req.files);
-
     if (!req.files.image) return new Error("No image provided!");
 
     // Create an image name
