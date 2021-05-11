@@ -15,19 +15,39 @@ interface Props {
 const ENDPOINT = "http://localhost:5000/api/v1/upload";
 
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
+  const [blob, setBlob] = useState<any>();
   const [file, setFile] = useState<string | undefined>();
   const [isUploading, setIsUploading] = useState<Boolean>(false);
 
   useEffect(() => {
     if (isUploading && file) {
-      const formData = new FormData();
-      formData.append("image", file);
+      try {
+        const formData = new FormData();
+        formData.append("image", blob);
 
-      axios.post(ENDPOINT, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+        axios
+          .post(ENDPOINT, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then(() => {
+            setIsUploading(false);
+          });
+
+        return () => {
+          setFile(undefined);
+          setBlob(undefined);
+          setIsUploading(false);
+        };
+      } catch (error) {
+        console.error(error);
+        return () => {
+          setFile(undefined);
+          setBlob(undefined);
+          setIsUploading(false);
+        };
+      }
     }
   }, [isUploading]);
 
@@ -35,6 +55,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const handleChange: any = (e: any) => {
     e.preventDefault();
     if (e.target.files[0].type.split("/")[0].toString() === "image") {
+      setBlob(e.target.files[0]);
       return setFile(URL.createObjectURL(e.target.files[0]));
     }
     return alert("File type is not an image!");
@@ -43,6 +64,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   // Handle submit
   const handleFormSubmit: any = (e: Event) => {
     e.preventDefault();
+    setIsUploading(true);
   };
 
   return (

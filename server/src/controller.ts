@@ -32,6 +32,8 @@ exports.uploadImage = upload.fields([{ name: "image", maxCount: 1 }]);
 // Save the image
 exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
   try {
+    console.log(req.files);
+
     if (!req.files.image) return new Error("No image provided!");
 
     // Create an image name
@@ -41,7 +43,7 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
     await sharp(req.files.image[0].buffer)
       .toFormat("jpeg")
       .jpeg({ quality: 90 })
-      .toFile(`./dist/public/images/${req.body.image}`);
+      .toFile(`${__dirname}/public/images/${req.body.image}`);
 
     return res.status(200).json({
       status: "success",
