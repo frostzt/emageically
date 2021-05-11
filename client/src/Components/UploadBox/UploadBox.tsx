@@ -25,6 +25,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
       try {
         const formData = new FormData();
         formData.append("image", blob);
+        formData.append("title", title);
 
         axios
           .post(ENDPOINT, formData, {

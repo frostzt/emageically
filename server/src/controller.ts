@@ -34,8 +34,10 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
   try {
     if (!req.files.image) return new Error("No image provided!");
 
+    const { title } = req.body;
+
     // Create an image name
-    req.body.image = `${nanoid(12)}.jpeg`;
+    req.body.image = `${title}|-separate-|${nanoid(12)}.jpeg`; // worst but still usefull
 
     // Sharp
     await sharp(req.files.image[0].buffer)
@@ -61,7 +63,7 @@ exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
       files.forEach((file) =>
         formattedFiles.push({
           id: nanoid(12),
-          title: file.split(".")[0],
+          title: file.split("|-separate-|")[0],
           link: `${req.protocol + "://" + req.hostname}:5000/images/${file}`,
         })
       );
@@ -71,7 +73,7 @@ exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
       files.forEach((file) =>
         formattedFiles.push({
           id: nanoid(12),
-          title: file.split(".")[0],
+          title: file.split("|-separate-|")[0],
           link: `${req.protocol + "://" + req.hostname}/images/${file}`,
         })
       );
