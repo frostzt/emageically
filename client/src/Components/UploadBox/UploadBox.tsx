@@ -12,7 +12,7 @@ interface Props {
   handleUpload: any;
 }
 
-const ENDPOINT = "http://localhost:5000/api/v1/upload";
+const ENDPOINT = "https://emageically.herokuapp.com/api/v1/upload";
 
 const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const [blob, setBlob] = useState<any>();

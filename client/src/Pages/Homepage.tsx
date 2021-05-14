@@ -13,7 +13,7 @@ import UploadBox from "../Components/UploadBox/UploadBox";
 import ImageCard from "../Components/ImageCard/ImageCard";
 
 // GLOBALS
-const ENDPOINT = `http://localhost:5000/api/v1/images`;
+const ENDPOINT = `https://emageically.herokuapp.com/api/v1/images`;
 
 const Homepage: React.FC = () => {
   const [images, setImages] = useState([]);
