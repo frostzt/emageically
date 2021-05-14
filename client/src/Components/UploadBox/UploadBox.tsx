@@ -71,7 +71,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
     e.preventDefault();
     if (
       e.target.value.includes("?") ||
-      e.target.value.includes("|--seperate--|")
+      e.target.value.includes("|--separate--|")
     ) {
       setIsInvalid(true);
       return setTitle(e.target.value);
@@ -118,7 +118,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
                 transform: "translateY(-0.8rem)",
               }}
             >
-              '?' and '|--seperate--|' are not allowed!
+              '?' and '|--separate--|' are not allowed!
             </p>
           ) : null}
           <input

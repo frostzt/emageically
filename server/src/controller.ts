@@ -63,7 +63,7 @@ exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
       files.forEach((file) =>
         formattedFiles.push({
           id: nanoid(12),
-          title: file.split("|-separate-|")[0],
+          title: file.split("|--separate--|")[0],
           link: `${req.protocol + "://" + req.hostname}:5000/images/${file}`,
         })
       );
@@ -73,7 +73,7 @@ exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
       files.forEach((file) =>
         formattedFiles.push({
           id: nanoid(12),
-          title: file.split("|-separate-|")[0],
+          title: file.split("|--separate--|")[0],
           link: `${req.protocol + "://" + req.hostname}/images/${file}`,
         })
       );
