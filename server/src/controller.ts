@@ -43,7 +43,7 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
     await sharp(req.files.image[0].buffer)
       .toFormat("jpeg")
       .jpeg({ quality: 90 })
-      .toFile(`${__dirname}/public/images/${req.body.image}`);
+      .toFile(`${__dirname}/../public/images/${req.body.image}`);
 
     return res.status(200).json({
       status: "success",
@@ -56,7 +56,7 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
 // Get Images and send the links to the client
 exports.getImages = async (req: Request, res: Response, _: NextFunction) => {
   try {
-    const files = await readdir(`${__dirname}/public/images`);
+    const files = await readdir(`${__dirname}/../public/images`);
     const formattedFiles: Object[] = [];
 
     if (process.env.NODE_ENV === "development") {
