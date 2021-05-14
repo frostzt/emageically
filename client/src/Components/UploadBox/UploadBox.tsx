@@ -22,7 +22,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const [isUploading, setIsUploading] = useState<Boolean>(false);
 
   useEffect(() => {
-    if (isUploading && file) {
+    if (isUploading && file && !isInvalid) {
       try {
         const formData = new FormData();
         formData.append("image", blob);
@@ -69,8 +69,14 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   // Handle title change
   const handleTitleChange: any = (e: any) => {
     e.preventDefault();
-    if (e.target.value) {
+    if (
+      e.target.value.includes("?") ||
+      e.target.value.includes("|--seperate--|")
+    ) {
+      setIsInvalid(true);
+      return setTitle(e.target.value);
     } else {
+      setIsInvalid(false);
       return setTitle(e.target.value);
     }
   };
@@ -104,6 +110,17 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
             placeholder="Title of the image"
             onChange={(e) => handleTitleChange(e)}
           />
+          {isInvalid ? (
+            <p
+              style={{
+                color: "red",
+                marginBottom: "1rem",
+                transform: "translateY(-0.8rem)",
+              }}
+            >
+              '?' and '|--seperate--|' are not allowed!
+            </p>
+          ) : null}
           <input
             className={classes.uploadInput}
             onChange={handleChange}
