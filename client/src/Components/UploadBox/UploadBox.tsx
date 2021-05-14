@@ -18,6 +18,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
   const [blob, setBlob] = useState<any>();
   const [title, setTitle] = useState<string>("");
   const [file, setFile] = useState<string | undefined>();
+  const [isInvalid, setIsInvalid] = useState<Boolean>(false);
   const [isUploading, setIsUploading] = useState<Boolean>(false);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
           })
           .then(() => {
             setIsUploading(false);
+            window.location.reload();
           });
 
         return () => {
@@ -64,6 +66,15 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
     return alert("File type is not an image!");
   };
 
+  // Handle title change
+  const handleTitleChange: any = (e: any) => {
+    e.preventDefault();
+    if (e.target.value) {
+    } else {
+      return setTitle(e.target.value);
+    }
+  };
+
   // Handle submit
   const handleFormSubmit: any = (e: any) => {
     e.preventDefault();
@@ -91,7 +102,7 @@ const UploadBox: React.FC<Props> = ({ handleUpload }) => {
             required
             className={classes.titleInput}
             placeholder="Title of the image"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => handleTitleChange(e)}
           />
           <input
             className={classes.uploadInput}
