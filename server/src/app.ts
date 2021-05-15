@@ -7,7 +7,7 @@ import express, { json } from "express";
 const app = express();
 
 // CORS
-app.use(cors({ origin: "https://emageically.netlify.app/" }));
+app.use(cors({ origin: "*" }));
 
 // Body parser
 app.use(json({ limit: "10kb" }));
