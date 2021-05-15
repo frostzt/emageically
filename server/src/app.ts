@@ -13,7 +13,7 @@ app.use(cors({ origin: "*" }));
 app.use(json({ limit: "10kb" }));
 
 // Serve static resources
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Logging
 if (process.env.NODE_ENV === "development") {
