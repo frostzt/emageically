@@ -37,7 +37,7 @@ exports.manipulateImage = async (req: any, res: Response, _: NextFunction) => {
     const { title } = req.body;
 
     // Create an image name
-    req.body.image = `${title}|-separate-|${nanoid(12)}.jpeg`; // worst but still usefull
+    req.body.image = `${title}|--separate--|${nanoid(12)}.jpeg`; // worst but still usefull
 
     // Sharp
     await sharp(req.files.image[0].buffer)
