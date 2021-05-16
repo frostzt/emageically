@@ -7,9 +7,15 @@ interface Props {
   title: string;
   imageSource: string;
   imageAlt: string | undefined;
+  handler?: any;
 }
 
-const ImageFocus: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
+const ImageFocus: React.FC<Props> = ({
+  title,
+  imageSource,
+  imageAlt,
+  handler,
+}) => {
   return (
     <div className={styles.imageFocus}>
       <div className={styles.container}>
@@ -22,6 +28,7 @@ const ImageFocus: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
           />
         </div>
       </div>
+      <div onClick={handler} className={styles.background} />
     </div>
   );
 };

@@ -27,6 +27,7 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
           title={title}
           imageSource={imageSource}
           imageAlt={imageAlt}
+          handler={handleFocus}
         />
       ) : null}
       <div className={classes.imageCard} onClick={handleFocus}>
