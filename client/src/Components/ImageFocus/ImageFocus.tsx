@@ -3,6 +3,9 @@ import React from "react";
 // Styles
 import styles from "./ImageFocus.module.scss";
 
+// Components
+import Button from "../Button/Button";
+
 interface Props {
   title: string;
   imageSource: string;
@@ -26,6 +29,10 @@ const ImageFocus: React.FC<Props> = ({
             src={imageSource}
             alt={imageAlt ? imageAlt : title}
           />
+        </div>
+        <div className={styles.btns}>
+          <Button style={{ marginRight: "3rem" }}>Download</Button>
+          <Button inverted>Cancel</Button>
         </div>
       </div>
       <div onClick={handler} className={styles.background} />

@@ -9,27 +9,40 @@
   .container {
     top: 50%;
     left: 50%;
-    width: 80vw;
+    width: 70vw;
     height: 90vh;
+    padding: 2rem;
+    display: flex;
     position: fixed;
     z-index: 9999999;
+    align-items: center;
     border-radius: 1rem;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0.1rem 0.1rem 1rem var(--shadow));
 
     .title {
-      font-weight: 700;
-      font-size: 1.6rem;
+      font-weight: 400;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
     }
 
     .imageContainer {
       height: 80%;
+      overflow: hidden;
+      border-radius: 1rem;
 
       &_image {
         width: auto;
         height: 100%;
       }
+    }
+
+    .btns {
+      display: flex;
+      margin-top: 3rem;
     }
   }
 
