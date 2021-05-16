@@ -13,7 +13,23 @@
     width: 80vw;
     height: 90vh;
     position: fixed;
+    border-radius: 1rem;
     background-color: white;
     transform: translate(-50%, -50%);
+    filter: drop-shadow(0.1rem 0.1rem 1rem var(--shadow));
+
+    .title {
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    .imageContainer {
+      height: 80%;
+
+      &_image {
+        width: auto;
+        height: 100%;
+      }
+    }
   }
 }

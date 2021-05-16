@@ -22,7 +22,13 @@ const ImageCard: React.FC<Props> = ({ title, imageSource, imageAlt }) => {
 
   return (
     <Fragment>
-      {isFocused ? <ImageFocus /> : null}
+      {isFocused ? (
+        <ImageFocus
+          title={title}
+          imageSource={imageSource}
+          imageAlt={imageAlt}
+        />
+      ) : null}
       <div className={classes.imageCard} onClick={handleFocus}>
         <div className={classes.imageCard__title}>{title}</div>
         <div className={classes.imageCard__container}>
