@@ -19,6 +19,16 @@ const ImageFocus: React.FC<Props> = ({
   imageAlt,
   handler,
 }) => {
+  // Download image
+  const downloadImage = () => {
+    const linkEl: HTMLAnchorElement = document.createElement("a");
+    const file: Blob = new Blob([imageSource.toString()], { type: "image/*" });
+
+    linkEl.href = URL.createObjectURL(file);
+    linkEl.download = `${title.split(" ").join("-")}.jpeg`;
+    linkEl.click();
+  };
+
   return (
     <div className={styles.imageFocus}>
       <div className={styles.container}>
@@ -31,8 +41,12 @@ const ImageFocus: React.FC<Props> = ({
           />
         </div>
         <div className={styles.btns}>
-          <Button style={{ marginRight: "3rem" }}>Download</Button>
-          <Button inverted>Cancel</Button>
+          <Button handler={downloadImage} style={{ marginRight: "3rem" }}>
+            Download
+          </Button>
+          <Button inverted handler={handler}>
+            Cancel
+          </Button>
         </div>
       </div>
       <div onClick={handler} className={styles.background} />
