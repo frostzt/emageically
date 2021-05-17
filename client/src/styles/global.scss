@@ -14,4 +14,8 @@ html {
   @include respond(laptop) {
     font-size: 50%;
   }
+
+  @include respond(mobileMedium) {
+    font-size: 45%;
+  }
 }

@@ -11,6 +11,10 @@
     margin-bottom: 1.25rem;
   }
 
+  @include respond(mobileMedium) {
+    margin-bottom: 0.85rem;
+  }
+
   &:hover &__container {
     filter: brightness(50%);
   }
@@ -26,7 +30,7 @@
     bottom: 1.5rem;
     font-weight: 800;
     font-size: 2.5rem;
-    z-index: 99999999;
+    z-index: 999;
     visibility: hidden;
     position: absolute;
     transition: all 0.3s;

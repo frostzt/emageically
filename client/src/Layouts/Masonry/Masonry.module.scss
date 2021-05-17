@@ -22,4 +22,10 @@
     margin: 0 1.5rem;
     margin-top: 3rem;
   }
+
+  @include respond(mobileMedium) {
+    margin: 0 1rem;
+    column-gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
 }
