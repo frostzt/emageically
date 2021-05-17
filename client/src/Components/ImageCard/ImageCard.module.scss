@@ -15,6 +15,10 @@
     margin-bottom: 0.85rem;
   }
 
+  @include respond(mobileSmall) {
+    margin-bottom: 0.5rem;
+  }
+
   &:hover &__container {
     filter: brightness(50%);
   }

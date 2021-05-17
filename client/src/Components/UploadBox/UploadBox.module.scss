@@ -32,6 +32,10 @@
       height: 35vh;
     }
 
+    @include respond(mobileSmall) {
+      height: 40vh;
+    }
+
     .title {
       font-size: 4rem;
       font-weight: 700;
@@ -61,6 +65,10 @@
         width: 70vw;
       }
 
+      @include respond(mobileSmall) {
+        top: -60%;
+      }
+
       &_img {
         width: 100%;
         height: 100%;
@@ -82,6 +90,12 @@
         margin-bottom: 2rem;
         border-radius: 1rem;
         border: 1px solid #ef233c;
+      }
+
+      .uploadInput {
+        @include respond(mobileSmall) {
+          margin-left: 12rem;
+        }
       }
 
       .btns {

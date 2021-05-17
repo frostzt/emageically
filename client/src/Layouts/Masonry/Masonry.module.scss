@@ -28,4 +28,10 @@
     column-gap: 1.25rem;
     margin-top: 2.5rem;
   }
+
+  @include respond(mobileSmall) {
+    margin: 0 0.85rem;
+    column-gap: 0.85rem;
+    margin-top: 2.25rem;
+  }
 }

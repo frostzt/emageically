@@ -18,4 +18,8 @@ html {
   @include respond(mobileMedium) {
     font-size: 45%;
   }
+
+  @include respond(mobileSmall) {
+    font-size: 40%;
+  }
 }
