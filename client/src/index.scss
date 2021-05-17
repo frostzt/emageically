@@ -22,6 +22,10 @@ body {
   @include respond(laptop) {
     padding: 3rem;
   }
+
+  @include respond(mobileLarge) {
+    padding: 1.5rem;
+  }
 }
 
 body.dark {

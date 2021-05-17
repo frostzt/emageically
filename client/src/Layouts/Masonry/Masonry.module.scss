@@ -12,8 +12,14 @@
   }
 
   @include respond(tablet) {
+    columns: 2;
     margin: 0 2rem;
     margin-top: 4rem;
     column-gap: 1.5rem;
+  }
+
+  @include respond(mobileLarge) {
+    margin: 0 1.5rem;
+    margin-top: 3rem;
   }
 }

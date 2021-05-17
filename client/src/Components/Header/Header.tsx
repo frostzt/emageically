@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useMediaQuery } from "react-responsive";
 
 // Styling
 import classes from "./Header.module.scss";
@@ -19,14 +20,20 @@ const Header: React.FC<Props> = ({
   search,
   handleUpload,
 }) => {
+  const isMobileLarge: Boolean = useMediaQuery({
+    query: "(max-device-width: 26.5625em)",
+  });
+
   return (
     <div className={classes.header}>
       <Logo />
-      <Search
-        search={search}
-        handleSearchChange={handleSearchChange}
-        extraClasses="mar-l-5rem"
-      />
+      {isMobileLarge ? null : (
+        <Search
+          search={search}
+          handleSearchChange={handleSearchChange}
+          extraClasses="mar-l-5rem"
+        />
+      )}
       <Button handler={handleUpload} extraClasses={classes.btn}>
         Add Image
       </Button>

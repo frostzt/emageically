@@ -28,11 +28,19 @@
       width: 80vw;
     }
 
+    @include respond(mobileLarge) {
+      height: 35vh;
+    }
+
     .title {
       font-size: 4rem;
       font-weight: 700;
       color: #ef233c;
       margin-bottom: 2rem;
+
+      @include respond(mobileLarge) {
+        font-size: 3rem;
+      }
     }
 
     .image {
@@ -46,6 +54,11 @@
 
       @include respond(tablet) {
         width: 50vw;
+      }
+
+      @include respond(mobileLarge) {
+        top: -70%;
+        width: 70vw;
       }
 
       &_img {
