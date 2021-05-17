@@ -1,9 +1,19 @@
+@import "../../styles/media-query-manager.scss";
+
 .masonry {
   columns: 3;
   margin: 0 10rem;
   margin-top: 8rem;
   column-gap: 2rem;
-  // gap: 2rem;
-  // display: grid;
-  // grid-template-columns: repeat(3, 1fr);
+
+  @include respond(laptop) {
+    margin: 0 4rem;
+    margin-top: 5rem;
+  }
+
+  @include respond(tablet) {
+    margin: 0 2rem;
+    margin-top: 4rem;
+    column-gap: 1.5rem;
+  }
 }

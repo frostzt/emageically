@@ -1,5 +1,6 @@
 @import "./styles/global.scss";
 @import "./styles/utils.scss";
+@import "./styles/media-query-manager.scss";
 
 body {
   padding: 4rem;
@@ -17,6 +18,10 @@ body {
   --shadow: rgba(0, 0, 0, 0.2);
 
   --font-color-white: #fff;
+
+  @include respond(laptop) {
+    padding: 3rem;
+  }
 }
 
 body.dark {

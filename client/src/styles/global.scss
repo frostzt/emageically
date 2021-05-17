@@ -1,3 +1,5 @@
+@import "./media-query-manager.scss";
+
 *,
 *::before,
 *::after {
@@ -8,4 +10,8 @@
 
 html {
   font-size: 62.5%; // 1rem = 10px
+
+  @include respond(laptop) {
+    font-size: 50%;
+  }
 }

@@ -1,9 +1,15 @@
+@import "../../styles/media-query-manager.scss";
+
 .imageCard {
   width: 100%;
   cursor: pointer;
   position: relative;
   margin-bottom: 2rem;
   transition: all 0.3s;
+
+  @include respond(tablet) {
+    margin-bottom: 1.25rem;
+  }
 
   &:hover &__container {
     filter: brightness(50%);

@@ -1,0 +1,32 @@
+// Media Query Manager
+@mixin respond($breakpoint) {
+  @if $breakpoint == laptop {
+    @media only screen and (max-width: 64em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 48em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobileLarge {
+    @media only screen and (max-width: 26.5625em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobileMedium {
+    @media only screen and (max-width: 23.4375em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobileSmall {
+    @media only screen and (max-width: 20em) {
+      @content;
+    }
+  }
+}
