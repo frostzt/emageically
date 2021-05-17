@@ -1,3 +1,5 @@
+@import "../../styles/media-query-manager.scss";
+
 .uploadBox {
   top: 0;
   left: 0;
@@ -22,6 +24,10 @@
     background-color: #fff;
     transform: translate(-50%, -50%);
 
+    @include respond(tablet) {
+      width: 80vw;
+    }
+
     .title {
       font-size: 4rem;
       font-weight: 700;
@@ -37,6 +43,10 @@
       position: absolute;
       border-radius: 1rem;
       background-color: rgb(238, 238, 238);
+
+      @include respond(tablet) {
+        width: 50vw;
+      }
 
       &_img {
         width: 100%;
